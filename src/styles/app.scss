@@ -1,0 +1,18 @@
+.app {
+  max-width: 1110px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+.header,
+.main,
+.footer {
+  padding: 20px;
+}
+
+@media (max-width: 767px) {
+  .app {
+    padding: 0;
+  }
+}
