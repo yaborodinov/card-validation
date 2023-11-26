@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .container {
   max-width: 1110px;
   margin: 0 auto;
@@ -12,7 +16,7 @@
 }
 
 .header {
-  background: #FFF;
+  background: #fff;
   box-shadow: 0px 0px 10px 0px rgba(131, 144, 193, 0.25);
 
   &-inner {
@@ -27,12 +31,56 @@
   }
 }
 
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.point-wrapper {
+  display: flex;
+  width: 100%;
+  .separator {
+    content: '';
+    display: block;
+    align-self: center;
+    margin: 0 auto;
+    height: 1px;
+    width: 80%;
+    background-color: #abc7ec;
+  }
+
+  &:last-child {
+    width: fit-content;
+  }
+}
+
+.statusPoint {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border: 1px solid #2f80ed;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  &.active {
+    background-color: #2f80ed;
+  }
+  &.done {
+    background-image: url('../assets/img/checkMark.svg');
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
 @media (max-width: 767px) {
   .container {
     padding: 0;
   }
 
-  .header{
+  .header {
     .burgerMenu {
       display: block;
     }

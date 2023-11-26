@@ -4,14 +4,14 @@ import Menu from './Menu'
 
 const Header = () => {
   return (
-  <div className="header">
-    <div className="container">
-      <div className="header-inner">
-        <img src={Logo} className='logo' alt="React Logo" />
-        <Menu/>
+    <div className="header">
+      <div className="container">
+        <div className="header-inner">
+          <img src={Logo} className="logo" alt="Logo" />
+          <Menu />
+        </div>
       </div>
     </div>
-  </div>
   )
 }
 
