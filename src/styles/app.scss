@@ -1,4 +1,6 @@
 @import './colors.scss';
+@import './transition.scss';
+@import './buttons.scss';
 
 * {
   box-sizing: border-box;
@@ -131,6 +133,83 @@ body {
 
 .cartMain {
   grid-column: span 5;
+  & > .title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    color: $trapped-darkness;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .orderInfo {
+    margin-bottom: 24px;
+    .plan,
+    .period,
+    .price {
+      color: $spelunking;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      .title {
+        font-size: 13px;
+        font-weight: 300;
+        line-height: 125%;
+      }
+      .text {
+        line-height: 125%;
+      }
+    }
+    .plan {
+      .text {
+        color: $trapped-darkness;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+    .period {
+      .text {
+        color: $trapped-darkness;
+        font-size: 15px;
+        font-weight: 400;
+      }
+    }
+    .price {
+      .text {
+        color: $turquoise;
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.gorisontalSeparator {
+  display: flex;
+  align-items: center;
+  span {
+    height: 1px;
+    min-width: 1px;
+    background: $weathered-blue;
+    flex-grow: 1;
+  }
+  .text {
+    margin: 0 12px;
+    color: $placid-blue;
+    line-height: 120%;
+  }
+}
+
+.cardForm {
+  padding: 24px;
+  background: $white;
+  border: 1px solid $weathered-blue;
+  border-radius: 4px;
+}
+
+.formWrapper {
+  margin: 20px 0 24px;
 }
 
 .sidebarRight {
@@ -162,6 +241,12 @@ body {
   }
   .cartMain {
     order: 1;
+  }
+
+  .cardForm {
+    padding: 16px;
+    border: none;
+    margin: 0 -16px;
   }
   .sidebarRight {
     order: 3;

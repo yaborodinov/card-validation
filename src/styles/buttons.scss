@@ -1,0 +1,59 @@
+.button {
+  // reset
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+
+  width: 100%;
+  border-radius: 4px;
+  transition: $transition;
+}
+
+.applePay {
+  height: 48px;
+  padding: 12px 0px;
+  background: $trapped-darkness;
+  &:hover {
+    background: $crow-black-blue;
+  }
+  &.active {
+    background: $kuketake-black-manga;
+  }
+}
+
+.payPal {
+  height: 48px;
+  padding: 12px 0px;
+  align-items: center;
+  border: 1px solid $cotton-boll;
+  background: $white;
+  &:hover {
+    border: 1px solid $salty-ice;
+  }
+  &.active {
+    border: 1px solid $salty-ice;
+    background: $wash-me;
+  }
+}
+
+.primary {
+  height: 54px;
+  background: $blue-de-france;
+  color: $white;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  &:hover {
+    background: $flickr-blue;
+  }
+  &.active {
+    background: $blizzy-blueberry;
+  }
+  &.disabled {
+    background: $blue-de-france;
+  }
+}
