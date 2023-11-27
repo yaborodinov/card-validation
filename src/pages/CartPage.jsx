@@ -1,15 +1,19 @@
 import React from 'react'
-import Main from '../components/Main'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import StatusBar from '../components/StatusBar'
+import SidebarLeft from '../components/SidebarLeft'
+import CartMain from '../components/CartMain'
+import SidebarRight from '../components/SidebarRight'
 
 const CartPage = () => {
   return (
-    <div>
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <>
+      <StatusBar />
+      <div className="cartContent">
+        <SidebarLeft />
+        <CartMain />
+        <SidebarRight />
+      </div>
+    </>
   )
 }
 

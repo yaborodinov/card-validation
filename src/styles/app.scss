@@ -1,9 +1,20 @@
+@import './colors.scss';
+
 * {
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: $dark-spell;
+  background: #f8fafd;
+}
+
 .container {
-  max-width: 1110px;
+  max-width: 1152px;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0 16px;
@@ -12,7 +23,7 @@
 .header,
 .main,
 .footer {
-  padding: 0 20px;
+  padding: 0 16px;
 }
 
 .header {
@@ -31,10 +42,15 @@
   }
 }
 
+.main {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 .status {
   display: flex;
   justify-content: space-between;
-  margin: 16px 0;
+  margin-bottom: 32px;
 }
 
 .point-wrapper {
@@ -68,11 +84,57 @@
     background-color: #2f80ed;
   }
   &.done {
-    background-image: url('../assets/img/checkMark.svg');
+    background-image: url('../assets/img/icons/singleColorIcons/checkMark.svg');
     background-size: 65%;
     background-position: center;
     background-repeat: no-repeat;
   }
+}
+
+.cartContent {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1120px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+.sidebarLeft {
+  grid-column: span 4;
+  .content {
+    width: calc(100% - 26.61%);
+    display: flex;
+    flex-direction: column;
+    &-logo {
+      width: 116px;
+      height: 163.165px;
+      align-self: center;
+      margin-bottom: 32px;
+    }
+    &-title {
+      margin-bottom: 24px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+.cartMain {
+  grid-column: span 5;
+}
+
+.sidebarRight {
+  grid-column: span 3;
 }
 
 @media (max-width: 767px) {
@@ -84,5 +146,24 @@
     .burgerMenu {
       display: block;
     }
+  }
+
+  .cartContent {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarLeft {
+    order: 2;
+    .content {
+      &-logo {
+        display: none;
+      }
+    }
+  }
+  .cartMain {
+    order: 1;
+  }
+  .sidebarRight {
+    order: 3;
   }
 }

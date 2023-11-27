@@ -1,14 +1,11 @@
 import React from 'react'
-import StatusBar from './StatusBar'
+import CartPage from '../pages/CartPage'
 
 const Main = () => {
   return (
     <div className="main">
       <div className="container">
-        <div className="main-inner">
-          <StatusBar />
-          <div className="content">Content</div>
-        </div>
+        <CartPage />
       </div>
     </div>
   )
