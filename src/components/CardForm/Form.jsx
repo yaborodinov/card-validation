@@ -16,46 +16,56 @@ const Form = () => {
 
   return (
     <form>
-      <InputField
-        type="email"
-        icon={EmailIcon}
-        placeholder="examplemail@mail.com"
-        value={emailValue}
-        onHandleChange={setEmailValue}
-      />
-      <InputField
-        type="curdNumber"
-        icon={CardIcon}
-        mask="card"
-        placeholder="0000 0000 0000 0000"
-        value={cardNumber}
-        onHandleChange={setCardNumber}
-      />
-      <div className="inputGroupWrapper">
+      <div className="inputsBlock">
+        <div className="inputsBlock-title">Email</div>
         <InputField
-          type="expiryDate"
-          icon={ExpiryIcon}
-          mask="expiry"
-          placeholder="MM/YYYY"
-          value={expiry}
-          onHandleChange={setExpiry}
-        />
-        <InputField
-          type="cvv"
-          mask="cvv"
-          icon={CVVIcon}
-          placeholder="CVV"
-          value={cvv}
-          onHandleChange={setCvv}
+          type="email"
+          icon={EmailIcon}
+          placeholder="examplemail@mail.com"
+          value={emailValue}
+          onHandleChange={setEmailValue}
         />
       </div>
-      <InputField
-        type="name"
-        icon={HolderIcon}
-        placeholder="Enter cardholder name"
-        value={holderName}
-        onHandleChange={setHolderName}
-      />
+      <div className="inputsBlock">
+        <div className="inputsBlock-title">Card information</div>
+        <InputField
+          type="curdNumber"
+          icon={CardIcon}
+          mask="card"
+          placeholder="0000 0000 0000 0000"
+          value={cardNumber}
+          onHandleChange={setCardNumber}
+        />
+        <div className="inputGroupWrapper">
+          <InputField
+            type="expiryDate"
+            icon={ExpiryIcon}
+            mask="expiry"
+            placeholder="MM/YYYY"
+            value={expiry}
+            onHandleChange={setExpiry}
+          />
+          <InputField
+            type="cvv"
+            mask="cvv"
+            icon={CVVIcon}
+            placeholder="CVV"
+            value={cvv}
+            onHandleChange={setCvv}
+          />
+        </div>
+      </div>
+      <div className="inputsBlock">
+        <div className="inputsBlock-title">Name on card</div>
+        <InputField
+          type="name"
+          icon={HolderIcon}
+          placeholder="Enter cardholder name"
+          value={holderName}
+          onHandleChange={setHolderName}
+        />
+      </div>
+      <div className="link">I have a coupon code</div>
       <Button type="primary" children="Submit order" />
     </form>
   )
