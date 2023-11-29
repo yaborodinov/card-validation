@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '../Button'
 import ApplePayIcon from '../../assets/img/ApplePay.svg'
 import GorizontalSeparator from '../GorizontalSeparator'
+import Form from './Form'
 
 const CardForm = () => {
   return (
@@ -14,7 +15,9 @@ const CardForm = () => {
         <img src={ApplePayIcon} alt="Apple Pay" />
       </Button>
       <GorizontalSeparator text="Or pay with card" />
-      <div className="formWrapper">Form</div>
+      <div className="formWrapper">
+        <Form />
+      </div>
       <GorizontalSeparator text="Or alternative methods" />
     </div>
   )

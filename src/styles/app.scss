@@ -201,6 +201,48 @@ body {
   }
 }
 
+.inputGroupWrapper {
+  display: flex;
+}
+
+.input-container {
+  flex-grow: 1;
+  position: relative;
+  &.error {
+    input {
+      border-color: $khmer-kurry;
+    }
+  }
+  input {
+    width: 100%;
+    padding: 12px 0 11px 52px;
+    border-radius: 4px;
+    border: 1px solid $weathered-blue;
+    background: $white;
+    transition: $transition;
+    &:focus {
+      outline: none;
+      border-color: $field-blue;
+    }
+  }
+  .icon {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    &-additional {
+      position: absolute;
+      top: 12px;
+      right: 24px;
+      &__item {
+        margin-right: 8px;
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
 .cardForm {
   padding: 24px;
   background: $white;
