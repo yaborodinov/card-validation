@@ -224,6 +224,17 @@ body {
       border-color: $khmer-kurry;
     }
   }
+  .error-text {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    color: $khmer-kurry;
+    &.expiration,
+    &.cvv {
+      top: auto;
+      bottom: -20px;
+    }
+  }
   input {
     width: 100%;
     padding: 12px 0 11px 52px;
