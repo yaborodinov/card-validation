@@ -15,11 +15,15 @@ const Form = () => {
   const [expiry, setExpiry] = useState('')
   const [cvv, setCvv] = useState('')
   const [holderName, setHolderName] = useState('')
+  const [couponValue, setCouponValue] = useState('')
   const [emailError, setEmailError] = useState('')
   const [cardError, setCardError] = useState(false)
   const [expiryError, setExpiryError] = useState(false)
   const [cvvError, setCvvError] = useState(false)
   const [holderError, setHolderError] = useState(false)
+  const [couponError, setCouponError] = useState(false)
+  const [couponSuccess, setCouponSuccess] = useState(false)
+  const [showCouponField, setShowCouponField] = useState(false)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -53,6 +57,7 @@ const Form = () => {
       expiry: expiry,
       cvv: cvv,
       holderName: holderName,
+      couponValue: couponValue && couponSuccess ? couponValue : '',
     }
     // here we can send data to BE
     console.log('Form Data:', formData)
@@ -115,6 +120,15 @@ const Form = () => {
     }
   }
 
+  const isValidCoupon = input => {
+    const couponRegex = /^[a-zA-Z0-9]+$/
+    if (!couponRegex.test(input) && input) {
+      setCouponError('Invalid coupon code :(')
+    } else if (couponRegex.test(input)) {
+      setCouponSuccess('Your coupon has been applied')
+    }
+  }
+
   const onEmailChange = value => {
     setEmailValue(value)
     setEmailError('')
@@ -134,6 +148,17 @@ const Form = () => {
   const onHolderChange = value => {
     setHolderName(value)
     setHolderError(false)
+  }
+
+  const onCouponChange = value => {
+    setCouponValue(value)
+    setCouponError(false)
+    setCouponSuccess(false)
+  }
+
+  const handleCouponApply = e => {
+    e.preventDefault()
+    isValidCoupon(couponValue)
   }
 
   return (
@@ -197,7 +222,22 @@ const Form = () => {
           handleBlur={value => isValidName(value)}
         />
       </div>
-      <div className="link">I have a coupon code</div>
+      {!showCouponField && (
+        <div className="coupon" onClick={() => setShowCouponField(true)}>
+          I have a coupon code
+        </div>
+      )}
+      {showCouponField && (
+        <InputField
+          type="coupon"
+          placeholder="Enter cardholder name"
+          value={couponValue}
+          error={couponError}
+          successMessage={couponSuccess}
+          onHandleChange={value => onCouponChange(value)}
+          onCouponApply={handleCouponApply}
+        />
+      )}
       <Button type="primary" children="Submit order" />
     </form>
   )

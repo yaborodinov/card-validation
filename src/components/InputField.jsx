@@ -10,11 +10,13 @@ const InputField = ({
   type,
   value,
   error,
+  successMessage = false,
   placeholder,
   icon,
   mask = false,
   onHandleChange,
   handleBlur,
+  onCouponApply,
 }) => {
   const handleChange = e => {
     onHandleChange(e.target.value)
@@ -33,24 +35,31 @@ const InputField = ({
             : '',
     alwaysShowMask: false,
     onChange: handleChange,
-    onBlur: e => handleBlur(e.target.value),
+    onBlur: e => handleBlur && handleBlur(e.target.value),
   }
 
   return (
     <>
-      <div className={classNames('input-container', { error: Boolean(error) })}>
-        {Boolean(error) && (
+      <div
+        className={classNames('input-container', {
+          noIcon: !icon,
+          coupon: type === 'coupon',
+          error: Boolean(error),
+          success: Boolean(successMessage),
+        })}
+      >
+        {Boolean(error || successMessage) && (
           <div
             className={classNames('error-text', {
               expiration: type === 'expiryDate',
               cvv: type === 'cvv',
             })}
           >
-            {error}
+            {error || successMessage}
           </div>
         )}
         <InputMask {...inputMaskProps} />
-        <img className="icon" src={icon} alt={type} />
+        {icon && <img className="icon" src={icon} alt={type} />}
         {type === 'curdNumber' && (
           <div className="icon-additional">
             <img
@@ -74,6 +83,14 @@ const InputField = ({
               className="icon-additional__item"
             />
           </div>
+        )}
+        {type === 'coupon' && !successMessage && (
+          <button className="button coupon-applyBtn" onClick={onCouponApply}>
+            Apply
+          </button>
+        )}
+        {type === 'coupon' && successMessage && (
+          <div className="coupon-checked"></div>
         )}
       </div>
     </>

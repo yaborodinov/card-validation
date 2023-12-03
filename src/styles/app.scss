@@ -219,6 +219,11 @@ body {
 .input-container {
   flex-grow: 1;
   position: relative;
+  &.noIcon {
+    input {
+      padding: 12px 16px 11px;
+    }
+  }
   &.error {
     input {
       border-color: $khmer-kurry;
@@ -235,9 +240,17 @@ body {
       bottom: -20px;
     }
   }
+  &.coupon {
+    margin-top: 42px;
+  }
+  &.success {
+    .error-text {
+      color: $sesame-street-green;
+    }
+  }
   input {
     width: 100%;
-    padding: 12px 0 11px 52px;
+    padding: 12px 16px 11px 52px;
     border-radius: 4px;
     border: 1px solid $weathered-blue;
     background: $white;
@@ -245,6 +258,9 @@ body {
     &:focus {
       outline: none;
       border-color: $field-blue;
+      & + .coupon-applyBtn {
+        color: $blue-de-france;
+      }
     }
   }
   .icon {
@@ -275,15 +291,38 @@ body {
 .formWrapper {
   margin: 20px 0 24px;
   form {
-    .link {
+    .coupon {
       color: $dark-spell;
       font-size: 12px;
       font-weight: 500;
       text-decoration-line: underline;
       text-transform: uppercase;
       margin-bottom: 16px;
+      .error-text {
+        text-transform: none;
+      }
       &:hover {
         cursor: pointer;
+        color: $blue-de-france;
+      }
+      &-applyBtn,
+      &-checked {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &-applyBtn {
+        color: $light-radar;
+        width: fit-content;
+      }
+      &-checked {
+        width: 20px;
+        height: 20px;
+        background-image: url('../assets/img/icons/coloredIcons/check.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
     }
   }
