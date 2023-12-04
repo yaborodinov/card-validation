@@ -4,6 +4,7 @@ import ApplePayIcon from '../../assets/img/ApplePay.svg'
 import GorizontalSeparator from '../GorizontalSeparator'
 import Form from './Form'
 import AlternativePayment from '../AlternativePayment'
+import CardFooter from './CardFooter'
 
 const CardForm = () => {
   return (
@@ -17,6 +18,7 @@ const CardForm = () => {
       </div>
       <GorizontalSeparator text="Or alternative methods" />
       <AlternativePayment />
+      <CardFooter />
     </div>
   )
 }

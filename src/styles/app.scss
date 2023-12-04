@@ -372,6 +372,53 @@ body {
   }
 }
 
+.cardFooter {
+  .reneval {
+    margin: 24px 0 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-text {
+      color: $spelunking;
+      font-size: 14px;
+      font-weight: 400;
+      margin-right: 8px;
+      line-height: normal;
+    }
+    &-toggle {
+      color: $blue-de-france;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
+  .content {
+    color: $spelunking;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 16px;
+    span {
+      text-decoration-line: underline;
+    }
+  }
+  .brands {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    div {
+      margin-right: 10px;
+      &:last-child {
+        margin-right: 0;
+      }
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .sidebarRight {
   grid-column: span 3;
 }
